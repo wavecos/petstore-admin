@@ -1,0 +1,32 @@
+
+enum PetType {
+	DOG,
+    CAT,
+    CANARY,
+    HORSE
+}
+
+enum Gender {
+	FEMALE,
+    MALE
+}
+
+entity Pet {
+	name String,
+    type PetType,
+    breed String,
+    weight Float,
+    age Integer,
+    gender Gender,
+    notes String
+}
+
+// Set pagination options
+paginate Pet with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+// angularSuffix * with mySuffix

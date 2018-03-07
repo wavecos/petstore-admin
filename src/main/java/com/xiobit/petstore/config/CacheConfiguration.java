@@ -42,6 +42,7 @@ public class CacheConfiguration {
             cm.createCache(com.xiobit.petstore.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.xiobit.petstore.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.xiobit.petstore.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.xiobit.petstore.domain.Pet.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
