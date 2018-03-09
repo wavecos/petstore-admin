@@ -31,6 +31,10 @@ public class PetDTO implements Serializable {
         return this.getName() + " " + this.getType() + " " + this.getAge();
     }
 
+    public Float convertWeightToPounds() {
+        return (this.getWeight() * 1000) / 454;
+    }
+
     public Long getId() {
         return id;
     }
