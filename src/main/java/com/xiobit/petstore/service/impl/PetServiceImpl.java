@@ -1,5 +1,7 @@
 package com.xiobit.petstore.service.impl;
 
+import com.xiobit.petstore.domain.User;
+import com.xiobit.petstore.repository.UserRepository;
 import com.xiobit.petstore.service.PetService;
 import com.xiobit.petstore.domain.Pet;
 import com.xiobit.petstore.repository.PetRepository;
@@ -24,11 +26,14 @@ public class PetServiceImpl implements PetService {
 
     private final PetRepository petRepository;
 
+    private final UserRepository userRepository;
+
     private final PetMapper petMapper;
 
-    public PetServiceImpl(PetRepository petRepository, PetMapper petMapper) {
+    public PetServiceImpl(PetRepository petRepository, PetMapper petMapper, UserRepository userRepository) {
         this.petRepository = petRepository;
         this.petMapper = petMapper;
+        this.userRepository = userRepository;
     }
 
     /**
@@ -38,10 +43,16 @@ public class PetServiceImpl implements PetService {
      * @return the persisted entity
      */
     @Override
+    @Transactional
     public PetDTO save(PetDTO petDTO) {
         log.debug("Request to save Pet : {}", petDTO);
         Pet pet = petMapper.toEntity(petDTO);
         pet = petRepository.save(pet);
+
+        User one = userRepository.findOne(100L);
+        one.getEmail();
+
+
         return petMapper.toDto(pet);
     }
 

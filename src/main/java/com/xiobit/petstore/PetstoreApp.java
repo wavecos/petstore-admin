@@ -5,11 +5,13 @@ import com.xiobit.petstore.config.DefaultProfileUtil;
 
 import io.github.jhipster.config.JHipsterConstants;
 
+import org.omg.CORBA.INTERNAL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.autoconfigure.*;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
@@ -52,6 +54,11 @@ public class PetstoreApp {
             log.error("You have misconfigured your application! It should not " +
                 "run with both the 'dev' and 'cloud' profiles at the same time.");
         }
+    }
+
+    public Integer suma(Integer a, Integer b) {
+        Integer x = a + b;
+        return x;
     }
 
     /**

@@ -23,13 +23,14 @@ public class PetDTOTest {
     }
 
     @Test
-    public void extraInformationTest() {
+    public void extraInformationShouldShowedTest() {
+
         assertEquals("La información extra no es correcta", GARFIELD_DESC, gato1.extraInformation());
         assertNotNull("verificar si tiene genero", gato1.getGender());
     }
 
     @Test
-    public void convertionToPoundsTest() {
+    public void weightShouldBeInPoundsTest() {
         gato1.setWeight(4.5F);
 
         Float weightInPounds = gato1.convertWeightToPounds();
