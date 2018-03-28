@@ -33,7 +33,7 @@ public class PetRepositoryTest {
         petRepository.deleteAll();
 
         pet = new Pet();
-        pet.setId(1L);
+      //  pet.setId(1L);
         pet.setName("Garfield");
         pet.setAge(3);
         pet.setNotes("Test notas");
@@ -71,7 +71,7 @@ public class PetRepositoryTest {
     }
 
     @Test
-    public void testDelete() {
+    public void deleteTest() {
         petRepository.save(pet);
         long countAfterInsert = petRepository.count();
         assertEquals(1, countAfterInsert);
@@ -79,6 +79,30 @@ public class PetRepositoryTest {
         petRepository.delete(garfield);
         long countAfterDelete = petRepository.count();
         assertEquals(0, countAfterDelete);
+    }
+
+    @Test
+    public void updateTest(){
+
+        //1. Guardar
+        Pet petSaved = petRepository.save(pet);
+
+        //2. Verificar si el id tiene un valor=seteado
+        assertNotNull(petSaved.getId());
+
+        //3. Modificar algunos atributos
+        petSaved.setName("Gatubela");
+
+        //4. guardar de nuevo el petSaved
+        petRepository.save(petSaved);   //aqui el save esta haciendo una actualizacion y no INSERT
+
+        //5. recuperar el nuevo pet con el nombre
+        Pet gatubela = petRepository.findOneByName("Gatubela");
+
+        //6. assert que el nuevo nombre del Pet sea el que se dio en el paso 5
+        assertEquals("Gatubela", gatubela.getName());
+
+
     }
 
 
