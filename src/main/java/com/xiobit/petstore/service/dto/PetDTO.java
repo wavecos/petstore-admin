@@ -27,6 +27,8 @@ public class PetDTO implements Serializable {
 
     private String notes;
 
+    private String test = "hola mundo";
+
     public String extraInformation() {
         return this.getName() + " " + this.getType() + " " + this.getAge();
     }
@@ -97,6 +99,14 @@ public class PetDTO implements Serializable {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
     }
 
     @Override

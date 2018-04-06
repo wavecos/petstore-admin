@@ -39,4 +39,6 @@ public interface PetService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+    void registerHistorial(PetDTO petDTO);
 }

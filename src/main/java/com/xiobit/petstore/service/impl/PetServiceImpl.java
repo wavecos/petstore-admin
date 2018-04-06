@@ -48,11 +48,6 @@ public class PetServiceImpl implements PetService {
         log.debug("Request to save Pet : {}", petDTO);
         Pet pet = petMapper.toEntity(petDTO);
         pet = petRepository.save(pet);
-
-        User one = userRepository.findOne(100L);
-        one.getEmail();
-
-
         return petMapper.toDto(pet);
     }
 
@@ -93,5 +88,14 @@ public class PetServiceImpl implements PetService {
     public void delete(Long id) {
         log.debug("Request to delete Pet : {}", id);
         petRepository.delete(id);
+    }
+
+    @Override
+    public void registerHistorial(PetDTO petDTO) {
+
+
+
+
+
     }
 }
