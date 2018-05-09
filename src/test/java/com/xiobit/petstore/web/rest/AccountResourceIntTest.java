@@ -453,11 +453,11 @@ public class AccountResourceIntTest {
 
     @Test
     @Transactional
-    @WithMockUser("save-account")
+    @WithMockUser("createPet-account")
     public void testSaveAccount() throws Exception {
         User user = new User();
-        user.setLogin("save-account");
-        user.setEmail("save-account@example.com");
+        user.setLogin("createPet-account");
+        user.setEmail("createPet-account@example.com");
         user.setPassword(RandomStringUtils.random(60));
         user.setActivated(true);
 
@@ -467,7 +467,7 @@ public class AccountResourceIntTest {
         userDTO.setLogin("not-used");
         userDTO.setFirstName("firstname");
         userDTO.setLastName("lastname");
-        userDTO.setEmail("save-account@example.com");
+        userDTO.setEmail("createPet-account@example.com");
         userDTO.setActivated(false);
         userDTO.setImageUrl("http://placehold.it/50x50");
         userDTO.setLangKey(Constants.DEFAULT_LANGUAGE);
@@ -492,11 +492,11 @@ public class AccountResourceIntTest {
 
     @Test
     @Transactional
-    @WithMockUser("save-invalid-email")
+    @WithMockUser("createPet-invalid-email")
     public void testSaveInvalidEmail() throws Exception {
         User user = new User();
-        user.setLogin("save-invalid-email");
-        user.setEmail("save-invalid-email@example.com");
+        user.setLogin("createPet-invalid-email");
+        user.setEmail("createPet-invalid-email@example.com");
         user.setPassword(RandomStringUtils.random(60));
         user.setActivated(true);
 
@@ -523,19 +523,19 @@ public class AccountResourceIntTest {
 
     @Test
     @Transactional
-    @WithMockUser("save-existing-email")
+    @WithMockUser("createPet-existing-email")
     public void testSaveExistingEmail() throws Exception {
         User user = new User();
-        user.setLogin("save-existing-email");
-        user.setEmail("save-existing-email@example.com");
+        user.setLogin("createPet-existing-email");
+        user.setEmail("createPet-existing-email@example.com");
         user.setPassword(RandomStringUtils.random(60));
         user.setActivated(true);
 
         userRepository.saveAndFlush(user);
 
         User anotherUser = new User();
-        anotherUser.setLogin("save-existing-email2");
-        anotherUser.setEmail("save-existing-email2@example.com");
+        anotherUser.setLogin("createPet-existing-email2");
+        anotherUser.setEmail("createPet-existing-email2@example.com");
         anotherUser.setPassword(RandomStringUtils.random(60));
         anotherUser.setActivated(true);
 
@@ -545,7 +545,7 @@ public class AccountResourceIntTest {
         userDTO.setLogin("not-used");
         userDTO.setFirstName("firstname");
         userDTO.setLastName("lastname");
-        userDTO.setEmail("save-existing-email2@example.com");
+        userDTO.setEmail("createPet-existing-email2@example.com");
         userDTO.setActivated(false);
         userDTO.setImageUrl("http://placehold.it/50x50");
         userDTO.setLangKey(Constants.DEFAULT_LANGUAGE);
@@ -557,17 +557,17 @@ public class AccountResourceIntTest {
                 .content(TestUtil.convertObjectToJsonBytes(userDTO)))
             .andExpect(status().isBadRequest());
 
-        User updatedUser = userRepository.findOneByLogin("save-existing-email").orElse(null);
-        assertThat(updatedUser.getEmail()).isEqualTo("save-existing-email@example.com");
+        User updatedUser = userRepository.findOneByLogin("createPet-existing-email").orElse(null);
+        assertThat(updatedUser.getEmail()).isEqualTo("createPet-existing-email@example.com");
     }
 
     @Test
     @Transactional
-    @WithMockUser("save-existing-email-and-login")
+    @WithMockUser("createPet-existing-email-and-login")
     public void testSaveExistingEmailAndLogin() throws Exception {
         User user = new User();
-        user.setLogin("save-existing-email-and-login");
-        user.setEmail("save-existing-email-and-login@example.com");
+        user.setLogin("createPet-existing-email-and-login");
+        user.setEmail("createPet-existing-email-and-login@example.com");
         user.setPassword(RandomStringUtils.random(60));
         user.setActivated(true);
 
@@ -577,7 +577,7 @@ public class AccountResourceIntTest {
         userDTO.setLogin("not-used");
         userDTO.setFirstName("firstname");
         userDTO.setLastName("lastname");
-        userDTO.setEmail("save-existing-email-and-login@example.com");
+        userDTO.setEmail("createPet-existing-email-and-login@example.com");
         userDTO.setActivated(false);
         userDTO.setImageUrl("http://placehold.it/50x50");
         userDTO.setLangKey(Constants.DEFAULT_LANGUAGE);
@@ -589,8 +589,8 @@ public class AccountResourceIntTest {
                 .content(TestUtil.convertObjectToJsonBytes(userDTO)))
             .andExpect(status().isOk());
 
-        User updatedUser = userRepository.findOneByLogin("save-existing-email-and-login").orElse(null);
-        assertThat(updatedUser.getEmail()).isEqualTo("save-existing-email-and-login@example.com");
+        User updatedUser = userRepository.findOneByLogin("createPet-existing-email-and-login").orElse(null);
+        assertThat(updatedUser.getEmail()).isEqualTo("createPet-existing-email-and-login@example.com");
     }
 
     @Test

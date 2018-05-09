@@ -40,7 +40,7 @@ describe('Component Tests', () => {
         });
 
         describe('save', () => {
-            it('Should call update service on save for existing entity',
+            it('Should call update service on createPet for existing entity',
                 inject([],
                     fakeAsync(() => {
                         // GIVEN
@@ -60,7 +60,7 @@ describe('Component Tests', () => {
                 )
             );
 
-            it('Should call create service on save for new entity',
+            it('Should call create service on createPet for new entity',
                 inject([],
                     fakeAsync(() => {
                         // GIVEN

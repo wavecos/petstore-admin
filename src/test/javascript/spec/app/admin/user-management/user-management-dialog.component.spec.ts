@@ -56,7 +56,7 @@ describe('Component Tests', () => {
         });
 
         describe('save', () => {
-            it('Should call update service on save for existing user',
+            it('Should call update service on createPet for existing user',
                 inject([],
                     fakeAsync(() => {
                         // GIVEN
@@ -78,7 +78,7 @@ describe('Component Tests', () => {
                 )
             );
 
-            it('Should call create service on save for new user',
+            it('Should call create service on createPet for new user',
                 inject([],
                     fakeAsync(() => {
                         // GIVEN

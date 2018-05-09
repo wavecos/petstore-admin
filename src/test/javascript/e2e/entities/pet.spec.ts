@@ -31,7 +31,7 @@ describe('Pet e2e test', () => {
         petDialogPage.close();
     });
 
-    it('should create and save Pets', () => {
+    it('should create and createPet Pets', () => {
         petComponentsPage.clickOnCreateButton();
         petDialogPage.setNameInput('name');
         expect(petDialogPage.getNameInput()).toMatch('name');

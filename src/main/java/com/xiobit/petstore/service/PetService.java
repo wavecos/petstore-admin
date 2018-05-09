@@ -12,10 +12,10 @@ public interface PetService {
     /**
      * Save a pet.
      *
-     * @param petDTO the entity to save
+     * @param petDTO the entity to createPet
      * @return the persisted entity
      */
-    PetDTO save(PetDTO petDTO);
+    PetDTO createPet(PetDTO petDTO);
 
     /**
      * Get all the pets.

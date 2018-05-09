@@ -49,11 +49,11 @@ public class PetResource {
     @PostMapping("/pets")
     @Timed
     public ResponseEntity<PetDTO> createPet(@RequestBody PetDTO petDTO) throws URISyntaxException {
-        log.debug("REST request to save Pet : {}", petDTO);
+        log.debug("REST request to createPet Pet : {}", petDTO);
         if (petDTO.getId() != null) {
             throw new BadRequestAlertException("A new pet cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        PetDTO result = petService.save(petDTO);
+        PetDTO result = petService.createPet(petDTO);
         return ResponseEntity.created(new URI("/api/pets/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -75,7 +75,7 @@ public class PetResource {
         if (petDTO.getId() == null) {
             return createPet(petDTO);
         }
-        PetDTO result = petService.save(petDTO);
+        PetDTO result = petService.createPet(petDTO);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, petDTO.getId().toString()))
             .body(result);

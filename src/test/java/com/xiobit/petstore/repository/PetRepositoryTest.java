@@ -94,7 +94,7 @@ public class PetRepositoryTest {
         petSaved.setName("Gatubela");
 
         //4. guardar de nuevo el petSaved
-        petRepository.save(petSaved);   //aqui el save esta haciendo una actualizacion y no INSERT
+        petRepository.save(petSaved);   //aqui el createPet esta haciendo una actualizacion y no INSERT
 
         //5. recuperar el nuevo pet con el nombre
         Pet gatubela = petRepository.findOneByName("Gatubela");

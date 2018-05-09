@@ -32,7 +32,7 @@ describe('Component Tests', () => {
             mockPrincipal = fixture.debugElement.injector.get(Principal);
         });
 
-        it('should send the current identity upon save', () => {
+        it('should send the current identity upon createPet', () => {
             // GIVEN
             const accountValues = {
                 firstName: 'John',
@@ -55,7 +55,7 @@ describe('Component Tests', () => {
             expect(comp.settingsAccount).toEqual(accountValues);
         });
 
-        it('should notify of success upon successful save', () => {
+        it('should notify of success upon successful createPet', () => {
             // GIVEN
             const accountValues = {
                 firstName: 'John',
@@ -71,7 +71,7 @@ describe('Component Tests', () => {
             expect(comp.success).toBe('OK');
         });
 
-        it('should notify of error upon failed save', () => {
+        it('should notify of error upon failed createPet', () => {
             // GIVEN
             mockAuth.saveSpy.and.returnValue(Observable.throw('ERROR'));
 

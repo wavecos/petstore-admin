@@ -39,13 +39,13 @@ public class PetServiceImpl implements PetService {
     /**
      * Save a pet.
      *
-     * @param petDTO the entity to save
+     * @param petDTO the entity to createPet
      * @return the persisted entity
      */
     @Override
     @Transactional
-    public PetDTO save(PetDTO petDTO) {
-        log.debug("Request to save Pet : {}", petDTO);
+    public PetDTO createPet(PetDTO petDTO) {
+        log.debug("Request to createPet Pet : {}", petDTO);
         Pet pet = petMapper.toEntity(petDTO);
         pet = petRepository.save(pet);
         return petMapper.toDto(pet);
