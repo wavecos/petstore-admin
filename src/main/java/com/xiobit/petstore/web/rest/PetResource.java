@@ -123,4 +123,12 @@ public class PetResource {
         petService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+
+
+    @GetMapping("/hello")
+    public String helloWorld() {
+        return "Hola mundo spring";
+    }
+
+
 }

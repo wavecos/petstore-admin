@@ -9,6 +9,7 @@ import com.xiobit.petstore.service.dto.PetDTO;
 import com.xiobit.petstore.service.mapper.PetMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -24,17 +25,20 @@ public class PetServiceImpl implements PetService {
 
     private final Logger log = LoggerFactory.getLogger(PetServiceImpl.class);
 
-    private final PetRepository petRepository;
+    @Autowired
+    private PetRepository petRepository;
 
-    private final UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-    private final PetMapper petMapper;
+    @Autowired
+    private PetMapper petMapper;
 
-    public PetServiceImpl(PetRepository petRepository, PetMapper petMapper, UserRepository userRepository) {
-        this.petRepository = petRepository;
-        this.petMapper = petMapper;
-        this.userRepository = userRepository;
-    }
+//    public PetServiceImpl(PetRepository petRepository, PetMapper petMapper, UserRepository userRepository) {
+//        this.petRepository = petRepository;
+//        this.petMapper = petMapper;
+//        this.userRepository = userRepository;
+//    }
 
     /**
      * Save a pet.
