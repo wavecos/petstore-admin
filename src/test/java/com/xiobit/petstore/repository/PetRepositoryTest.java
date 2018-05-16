@@ -43,6 +43,14 @@ public class PetRepositoryTest {
 
         Mockito.when(petRepository.findAll()).thenReturn(pets);
         Mockito.when(petRepository.findOne(2L)).thenReturn(pet2);
+
+        Pet petSaved = new Pet();
+        petSaved.setId(3L);
+        petSaved.setName("Firulais");
+        petSaved.setWeight(1.6F);
+        petSaved.setAge(12);
+
+        Mockito.when(petRepository.save(Mockito.any(Pet.class))).thenReturn(petSaved);
     }
 
     @Test
@@ -54,12 +62,21 @@ public class PetRepositoryTest {
     @Test
     public void findOnePetsTest() {
         Pet mascota = petRepository.findOne(2L);
+
+        assertEquals(2L, mascota.getId(), 0);
+        assertEquals("Capitan Nemo", mascota.getName());
         // ...
     }
 
     @Test
     public void savePetTest() {
-        // implementar
+        Pet petToSave = new Pet();
+
+        Pet mascota = petRepository.save(petToSave);
+
+        assertEquals(3L, mascota.getId(), 0);
+        assertEquals("Firulais", mascota.getName());
+        assertEquals(1.6f, mascota.getWeight(), 0);
     }
 
 }

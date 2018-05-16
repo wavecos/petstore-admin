@@ -9,16 +9,13 @@ import com.xiobit.petstore.repository.UserRepository;
 import com.xiobit.petstore.service.PetService;
 import com.xiobit.petstore.service.dto.PetDTO;
 import com.xiobit.petstore.service.mapper.PetMapper;
-import com.xiobit.petstore.service.mapper.PetMapperImpl;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mapstruct.factory.Mappers;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
@@ -30,7 +27,6 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 public class PetServiceImplTest {
-
 
     @TestConfiguration
     static class PetServiceImplTestContextConfiguration {
@@ -55,7 +51,6 @@ public class PetServiceImplTest {
 
     @Before
     public void setUp() {
-
         Pet pet = new Pet();
         pet.setId(1L);
         pet.setName("test");
